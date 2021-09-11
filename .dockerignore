@@ -1,0 +1,16 @@
+.git
+.gitignore
+.yamllint
+.rubocop.yml
+.env
+.eslintignore
+.eslintrc.js
+.rakeTasks
+.orig
+.idea
+
+/log/*
+/tmp/*
+/public/assets
+/public/packs
+config/credentials/*.key
