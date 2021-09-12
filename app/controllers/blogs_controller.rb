@@ -3,9 +3,14 @@ class BlogsController < ApplicationController
 
   # GET /blogs or /blogs.json
   def index
-    @echo_response = MICRO_SERVICE_STUB
-                     .ping(MicroService::Pb::EchoRequest.new(echo_text: 'Hello World'))
-                     .echo_text
+    begin
+      @echo_response = MICRO_SERVICE_STUB
+                      .ping(MicroService::Pb::EchoRequest.new(echo_text: 'Hello World'))
+                      .echo_text
+    rescue
+      @echo_response = 'Failed'
+    end
+
     @blogs = Blog.all
   end
 

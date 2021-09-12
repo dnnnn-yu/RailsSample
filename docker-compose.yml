@@ -21,8 +21,6 @@ services:
   microservice:
     build: ../microservice
     command: bundle exec ruby bin/startup.rb
-    ports:
-      - "3001:3001"
 volumes:
   mysql-db:
     driver: local
