@@ -9,6 +9,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - microservice
   db:
     image: mysql:5.7
     environment:
@@ -17,6 +18,11 @@ services:
      - mysql-db:/var/lib/mysql
     ports:
       - "13306:3306"
+  microservice:
+    build: ../microservice
+    command: bundle exec ruby bin/startup.rb
+    ports:
+      - "3001:3001"
 volumes:
   mysql-db:
     driver: local
